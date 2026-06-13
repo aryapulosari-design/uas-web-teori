@@ -170,7 +170,7 @@ Aplikasi ini menggunakan 4 tabel utama:
 
 ## Tautan Video YouTube
 
-🎥 **Video Demonstrasi:** [Masukkan link video YouTube di sini]
+🎥 **Video Demonstrasi:** [https://youtu.be/dLuZFQV09zc](https://youtu.be/dLuZFQV09zc?si=jiue107Wp04AqiwE)
 
 ---
 
