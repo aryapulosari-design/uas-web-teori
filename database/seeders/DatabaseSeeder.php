@@ -2,126 +2,120 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Seeder;
 use App\Models\Penulis;
 use App\Models\KategoriArtikel;
 use App\Models\Artikel;
-use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // Buat Penulis
+        // ==========================================
+        // PENULIS
+        // ==========================================
         $penulis1 = Penulis::create([
-            'nama_lengkap' => 'Ahmad Fauzi',
-            'email' => 'ahmad@blog.com',
+            'nama_lengkap' => 'Arya Kharisudin Irfani',
+            'email' => 'arya@blog.com',
             'password' => bcrypt('password'),
-            'foto' => 'avatar1.jpg',
+            'foto' => null,
         ]);
 
         $penulis2 = Penulis::create([
+            'nama_lengkap' => 'Budi Santoso',
+            'email' => 'budi@blog.com',
+            'password' => bcrypt('password'),
+            'foto' => null,
+        ]);
+
+        $penulis3 = Penulis::create([
             'nama_lengkap' => 'Siti Nurhaliza',
             'email' => 'siti@blog.com',
             'password' => bcrypt('password'),
-            'foto' => 'avatar2.jpg',
+            'foto' => null,
         ]);
 
-        // Buat Kategori
-        $teknologi = KategoriArtikel::create(['nama_kategori' => 'Teknologi']);
-        $pendidikan = KategoriArtikel::create(['nama_kategori' => 'Pendidikan']);
-        $kesehatan = KategoriArtikel::create(['nama_kategori' => 'Kesehatan']);
-        $wisata = KategoriArtikel::create(['nama_kategori' => 'Wisata']);
+        // ==========================================
+        // KATEGORI ARTIKEL
+        // ==========================================
+        $kategoriTeknologi = KategoriArtikel::create(['nama_kategori' => 'Teknologi']);
+        $kategoriPendidikan = KategoriArtikel::create(['nama_kategori' => 'Pendidikan']);
+        $kategoriKesehatan = KategoriArtikel::create(['nama_kategori' => 'Kesehatan']);
+        $kategoriOlahraga = KategoriArtikel::create(['nama_kategori' => 'Olahraga']);
 
-        // Buat Artikel
+        // ==========================================
+        // ARTIKEL
+        // ==========================================
         Artikel::create([
             'id_penulis' => $penulis1->id,
-            'id_kategori' => $teknologi->id,
-            'judul' => 'Perkembangan Artificial Intelligence di Tahun 2026',
-            'gambar' => 'ai.jpg',
-            'isi' => 'Artificial Intelligence (AI) terus berkembang pesat di tahun 2026. Berbagai inovasi baru bermunculan di berbagai sektor, mulai dari kesehatan, pendidikan, hingga industri manufaktur. Teknologi AI generatif kini mampu menghasilkan konten yang semakin realistis dan bermanfaat untuk berbagai kebutuhan bisnis dan kreatif.
-
-Salah satu perkembangan paling signifikan adalah kemampuan AI dalam memahami konteks dan nuansa bahasa manusia dengan lebih baik. Model-model bahasa besar (Large Language Models) kini dapat memberikan respons yang lebih akurat dan relevan, membuat interaksi manusia-mesin menjadi lebih natural.
-
-Di bidang kesehatan, AI telah membantu dalam diagnosa penyakit dengan tingkat akurasi yang semakin tinggi. Sistem AI dapat menganalisis gambar medis, data genetik, dan riwayat kesehatan pasien untuk memberikan rekomendasi pengobatan yang lebih personal dan efektif.',
-            'hari_tanggal' => 'Senin, 09 Juni 2026 10:00',
+            'id_kategori' => $kategoriTeknologi->id,
+            'judul' => 'Mengenal Artificial Intelligence dan Dampaknya di Kehidupan Sehari-hari',
+            'gambar' => 'artikel_ai.png',
+            'isi' => 'Artificial Intelligence (AI) atau kecerdasan buatan adalah cabang ilmu komputer yang berfokus pada pembuatan mesin yang mampu berpikir dan belajar seperti manusia. Teknologi AI telah berkembang pesat dalam beberapa tahun terakhir dan telah mengubah berbagai aspek kehidupan kita. Dari asisten virtual seperti Siri dan Google Assistant hingga sistem rekomendasi di platform streaming, AI telah menjadi bagian tak terpisahkan dari kehidupan modern. Dalam dunia kesehatan, AI digunakan untuk mendiagnosis penyakit dengan lebih akurat. Di bidang transportasi, mobil otonom menggunakan AI untuk navigasi. Bahkan di sektor pendidikan, AI membantu personalisasi pembelajaran untuk setiap siswa. Meskipun membawa banyak manfaat, AI juga menimbulkan tantangan seperti masalah privasi data dan potensi penggantian pekerjaan manusia.',
+            'hari_tanggal' => 'Senin, 09 Juni 2026',
         ]);
 
         Artikel::create([
             'id_penulis' => $penulis2->id,
-            'id_kategori' => $pendidikan->id,
-            'judul' => 'Transformasi Digital dalam Dunia Pendidikan Indonesia',
-            'gambar' => 'edu.jpg',
-            'isi' => 'Transformasi digital telah mengubah wajah pendidikan di Indonesia secara signifikan. Penggunaan platform pembelajaran online, video conference, dan aplikasi edukasi interaktif kini menjadi bagian integral dari proses belajar mengajar di berbagai jenjang pendidikan.
+            'id_kategori' => $kategoriPendidikan->id,
+            'judul' => 'Tips Efektif Belajar Pemrograman untuk Pemula',
+            'gambar' => 'artikel_programming.png',
+            'isi' => 'Belajar pemrograman bisa menjadi tantangan besar bagi pemula, namun dengan pendekatan yang tepat, siapa pun bisa menguasainya. Pertama, pilih satu bahasa pemrograman dan fokus mempelajarinya hingga paham konsep dasarnya. PHP, Python, atau JavaScript adalah pilihan yang bagus untuk pemula. Kedua, praktik adalah kunci utama. Jangan hanya membaca teori, tetapi langsung tulis kode setiap hari. Ketiga, manfaatkan sumber belajar online seperti YouTube, Coursera, atau dokumentasi resmi. Keempat, bergabunglah dengan komunitas programmer untuk saling berdiskusi dan belajar. Kelima, mulailah dengan proyek kecil seperti membuat kalkulator atau to-do list, kemudian tingkatkan kompleksitasnya secara bertahap. Ingat, setiap programmer hebat pernah menjadi pemula.',
+            'hari_tanggal' => 'Selasa, 10 Juni 2026',
+        ]);
 
-Pemerintah Indonesia melalui Kementerian Pendidikan terus mendorong digitalisasi pendidikan dengan menyediakan infrastruktur teknologi yang memadai. Program-program seperti platform Merdeka Mengajar dan kurikulum digital telah membantu guru dan siswa beradaptasi dengan era pembelajaran modern.
-
-Tantangan utama yang dihadapi adalah kesenjangan akses teknologi antara daerah perkotaan dan pedesaan. Namun, berbagai inisiatif dan program bantuan teknologi terus dilakukan untuk menjembatani kesenjangan tersebut.',
-            'hari_tanggal' => 'Minggu, 08 Juni 2026 14:30',
+        Artikel::create([
+            'id_penulis' => $penulis3->id,
+            'id_kategori' => $kategoriKesehatan->id,
+            'judul' => 'Pentingnya Menjaga Kesehatan Mental di Era Digital',
+            'gambar' => 'artikel_mental_health.png',
+            'isi' => 'Di era digital yang serba cepat ini, kesehatan mental menjadi isu yang semakin penting untuk diperhatikan. Penggunaan media sosial yang berlebihan, tekanan pekerjaan, dan gaya hidup yang tidak seimbang dapat berdampak negatif pada kesehatan mental seseorang. Beberapa cara yang bisa dilakukan untuk menjaga kesehatan mental antara lain: membatasi waktu penggunaan gadget, rutin berolahraga minimal 30 menit sehari, tidur yang cukup 7-8 jam per malam, menjaga hubungan sosial dengan orang-orang terdekat, serta tidak ragu untuk berkonsultasi dengan profesional jika merasa membutuhkan bantuan. Meditasi dan mindfulness juga terbukti efektif dalam mengurangi stres dan kecemasan. Ingat, kesehatan mental sama pentingnya dengan kesehatan fisik.',
+            'hari_tanggal' => 'Rabu, 11 Juni 2026',
         ]);
 
         Artikel::create([
             'id_penulis' => $penulis1->id,
-            'id_kategori' => $kesehatan->id,
-            'judul' => 'Tips Menjaga Kesehatan Mental di Era Digital',
-            'gambar' => 'health.jpg',
-            'isi' => 'Di era digital yang serba cepat, menjaga kesehatan mental menjadi tantangan tersendiri. Paparan informasi yang berlebihan, tekanan media sosial, dan gaya hidup sedentari dapat berdampak negatif pada kesejahteraan mental kita.
-
-Berikut beberapa tips untuk menjaga kesehatan mental di era digital. Pertama, batasi penggunaan media sosial. Terlalu banyak scrolling dapat menyebabkan kecemasan dan perbandingan sosial yang tidak sehat. Kedua, luangkan waktu untuk digital detox secara berkala. Matikan notifikasi dan nikmati momen tanpa layar.
-
-Ketiga, jaga pola tidur yang teratur. Hindari penggunaan gadget setidaknya 30 menit sebelum tidur karena cahaya biru dari layar dapat mengganggu kualitas tidur. Keempat, tetap aktif secara fisik. Olahraga teratur terbukti dapat meningkatkan mood dan mengurangi gejala depresi serta kecemasan.',
-            'hari_tanggal' => 'Sabtu, 07 Juni 2026 09:15',
+            'id_kategori' => $kategoriTeknologi->id,
+            'judul' => 'Laravel: Framework PHP Terbaik untuk Pengembangan Web Modern',
+            'gambar' => 'artikel_laravel.png',
+            'isi' => 'Laravel adalah framework PHP yang paling populer dan banyak digunakan oleh developer di seluruh dunia. Diciptakan oleh Taylor Otwell pada tahun 2011, Laravel menawarkan sintaks yang elegan dan ekspresif, memudahkan proses pengembangan aplikasi web. Fitur-fitur unggulan Laravel meliputi Eloquent ORM untuk manajemen database, Blade templating engine untuk membuat tampilan, sistem routing yang fleksibel, middleware untuk keamanan, serta Artisan CLI untuk otomasi tugas-tugas pengembangan. Laravel juga memiliki ekosistem yang lengkap dengan tools seperti Laravel Forge, Vapor, dan Nova. Dengan dokumentasi yang sangat baik dan komunitas yang besar, Laravel menjadi pilihan ideal untuk membangun aplikasi web dari yang sederhana hingga enterprise.',
+            'hari_tanggal' => 'Kamis, 12 Juni 2026',
         ]);
 
         Artikel::create([
             'id_penulis' => $penulis2->id,
-            'id_kategori' => $teknologi->id,
-            'judul' => 'Framework Laravel: Mengapa Masih Menjadi Pilihan Utama Developer',
-            'gambar' => 'tech.jpg',
-            'isi' => 'Laravel tetap menjadi salah satu framework PHP paling populer di tahun 2026. Dengan ekosistem yang matang, dokumentasi yang lengkap, dan komunitas yang aktif, Laravel terus menjadi pilihan utama bagi developer web di seluruh dunia.
+            'id_kategori' => $kategoriOlahraga->id,
+            'judul' => 'Manfaat Olahraga Rutin untuk Produktivitas Kerja',
+            'gambar' => 'artikel_olahraga.png',
+            'isi' => 'Olahraga rutin tidak hanya bermanfaat untuk kesehatan fisik, tetapi juga dapat meningkatkan produktivitas kerja secara signifikan. Penelitian menunjukkan bahwa orang yang berolahraga secara teratur memiliki tingkat konsentrasi yang lebih baik, kreativitas yang lebih tinggi, dan kemampuan mengelola stres yang lebih baik. Olahraga melepaskan endorfin yang membuat suasana hati menjadi lebih baik dan meningkatkan energi sepanjang hari. Tidak perlu olahraga berat, cukup dengan jalan kaki 30 menit, jogging ringan, atau bersepeda sudah memberikan dampak positif. Banyak perusahaan besar kini menyediakan fasilitas gym dan program kesehatan untuk karyawannya karena menyadari hubungan erat antara kebugaran fisik dan produktivitas kerja.',
+            'hari_tanggal' => 'Jumat, 13 Juni 2026',
+        ]);
 
-Salah satu keunggulan utama Laravel adalah sintaksnya yang ekspresif dan elegan. Fitur-fitur seperti Eloquent ORM, Blade templating engine, dan Artisan CLI membuat proses pengembangan menjadi lebih efisien dan menyenangkan. Laravel juga menyediakan solusi bawaan untuk masalah umum seperti autentikasi, otorisasi, caching, dan queue management.
-
-Dengan hadirnya Laravel 13, framework ini semakin memperkuat posisinya dengan performa yang lebih cepat, fitur-fitur baru yang inovatif, dan dukungan penuh untuk PHP 8.3. Ekosistem Laravel yang mencakup Laravel Forge, Vapor, Nova, dan Livewire memberikan solusi end-to-end untuk berbagai kebutuhan pengembangan aplikasi web.',
-            'hari_tanggal' => 'Jumat, 06 Juni 2026 16:45',
+        Artikel::create([
+            'id_penulis' => $penulis3->id,
+            'id_kategori' => $kategoriPendidikan->id,
+            'judul' => 'Peran Teknologi dalam Transformasi Pendidikan Indonesia',
+            'gambar' => 'artikel_edukasi.png',
+            'isi' => 'Teknologi telah membawa perubahan besar dalam dunia pendidikan Indonesia. Sejak pandemi COVID-19, pembelajaran online menjadi hal yang lumrah dan mendorong percepatan adopsi teknologi di sektor pendidikan. Platform e-learning, video conference, dan aplikasi pembelajaran interaktif kini menjadi alat bantu yang tidak terpisahkan dari proses belajar mengajar. Pemerintah juga telah meluncurkan berbagai program digitalisasi pendidikan, termasuk penyediaan infrastruktur internet di daerah terpencil. Meskipun masih ada tantangan seperti kesenjangan akses teknologi antara daerah perkotaan dan pedesaan, potensi teknologi untuk meningkatkan kualitas pendidikan di Indonesia sangatlah besar. Dengan kolaborasi antara pemerintah, institusi pendidikan, dan sektor swasta, transformasi digital pendidikan Indonesia akan terus berkembang.',
+            'hari_tanggal' => 'Jumat, 13 Juni 2026',
         ]);
 
         Artikel::create([
             'id_penulis' => $penulis1->id,
-            'id_kategori' => $wisata->id,
-            'judul' => 'Destinasi Wisata Alam Tersembunyi di Jawa Barat',
-            'gambar' => 'nature.jpg',
-            'isi' => 'Jawa Barat menyimpan banyak destinasi wisata alam yang masih tersembunyi dan belum banyak diketahui wisatawan. Keindahan alamnya yang memukau dan udaranya yang sejuk menjadikan provinsi ini sebagai surga bagi pecinta alam dan petualangan.
-
-Salah satu destinasi yang wajib dikunjungi adalah Kawah Rengganis di Bandung Barat. Kawah ini menawarkan pemandangan yang eksotis dengan air panas alami berwarna biru kehijauan yang dikelilingi oleh hutan pinus yang rindang. Selain itu, ada juga Curug Malela di Bandung Barat yang dijuluki sebagai Niagara-nya Jawa Barat karena bentuknya yang melebar dan megah.
-
-Di wilayah Garut, terdapat Situ Cangkuang yang merupakan danau kecil dengan pulau di tengahnya. Di pulau tersebut terdapat Candi Cangkuang, satu-satunya candi Hindu yang ditemukan di Jawa Barat. Kombinasi keindahan alam dan nilai historis menjadikan tempat ini sangat menarik untuk dikunjungi.',
-            'hari_tanggal' => 'Kamis, 05 Juni 2026 11:20',
+            'id_kategori' => $kategoriKesehatan->id,
+            'judul' => 'Pola Makan Sehat untuk Mahasiswa dengan Budget Terbatas',
+            'gambar' => 'artikel_makanan.png',
+            'isi' => 'Menjaga pola makan sehat sebagai mahasiswa dengan budget terbatas memang bukan hal yang mudah, namun bukan berarti mustahil. Kunci utamanya adalah perencanaan dan pemilihan bahan makanan yang tepat. Beras merah, telur, tempe, tahu, dan sayuran lokal seperti bayam, kangkung, dan wortel adalah contoh makanan bergizi tinggi dengan harga terjangkau. Memasak sendiri di kos juga jauh lebih hemat dibandingkan makan di luar. Hindari junk food dan minuman manis kemasan yang selain mahal juga tidak sehat. Pastikan untuk minum air putih minimal 8 gelas sehari. Mengatur jadwal makan yang teratur — sarapan, makan siang, dan makan malam — juga penting untuk menjaga metabolisme tubuh tetap optimal selama menjalani aktivitas perkuliahan yang padat.',
+            'hari_tanggal' => 'Kamis, 12 Juni 2026',
         ]);
 
         Artikel::create([
             'id_penulis' => $penulis2->id,
-            'id_kategori' => $pendidikan->id,
-            'judul' => 'Pentingnya Pembelajaran Coding Sejak Dini',
-            'gambar' => 'coding.jpg',
-            'isi' => 'Di era digital yang semakin maju, kemampuan coding atau pemrograman komputer menjadi salah satu keterampilan yang sangat berharga. Banyak negara maju telah memasukkan coding sebagai bagian dari kurikulum pendidikan dasar mereka, dan Indonesia pun mulai mengikuti tren ini.
-
-Pembelajaran coding sejak dini tidak hanya mengajarkan anak cara membuat program komputer, tetapi juga melatih kemampuan berpikir logis, pemecahan masalah, dan kreativitas. Anak-anak yang belajar coding cenderung memiliki kemampuan analitis yang lebih baik dan lebih terbiasa dengan pola pikir sistematis.
-
-Berbagai platform pembelajaran coding untuk anak kini tersedia secara gratis dan berbayar. Scratch, Code.org, dan Tynker adalah beberapa platform populer yang dirancang khusus untuk anak-anak dengan pendekatan visual dan gamifikasi yang membuat proses belajar menjadi menyenangkan.',
-            'hari_tanggal' => 'Rabu, 04 Juni 2026 13:00',
-        ]);
-
-        Artikel::create([
-            'id_penulis' => $penulis1->id,
-            'id_kategori' => $kesehatan->id,
-            'judul' => 'Manfaat Olahraga Pagi untuk Produktivitas Harian',
-            'gambar' => 'morning.jpg',
-            'isi' => 'Olahraga pagi telah terbukti memberikan banyak manfaat, tidak hanya untuk kesehatan fisik tetapi juga untuk meningkatkan produktivitas sepanjang hari. Penelitian menunjukkan bahwa orang yang rutin berolahraga di pagi hari cenderung memiliki tingkat energi dan fokus yang lebih tinggi dibandingkan mereka yang tidak.
-
-Ketika kita berolahraga, tubuh melepaskan endorfin yang dikenal sebagai "hormon kebahagiaan". Endorfin ini membantu mengurangi stres, meningkatkan mood, dan memberikan perasaan positif yang bertahan sepanjang hari. Selain itu, olahraga pagi juga meningkatkan aliran darah ke otak, yang membantu meningkatkan konsentrasi dan kemampuan berpikir kritis.
-
-Tidak perlu olahraga berat untuk mendapatkan manfaat ini. Cukup dengan jalan kaki selama 30 menit, yoga ringan, atau stretching di pagi hari sudah dapat memberikan dampak positif yang signifikan pada produktivitas dan kesejahteraan Anda.',
-            'hari_tanggal' => 'Selasa, 03 Juni 2026 07:30',
+            'id_kategori' => $kategoriTeknologi->id,
+            'judul' => 'Keamanan Siber: Ancaman dan Cara Melindungi Data Pribadi',
+            'gambar' => 'artikel_cybersecurity.png',
+            'isi' => 'Di era digital, keamanan siber menjadi isu kritis yang harus dipahami oleh semua pengguna internet. Serangan siber seperti phishing, malware, ransomware, dan pencurian identitas semakin canggih dan menargetkan individu maupun organisasi. Untuk melindungi data pribadi, ada beberapa langkah yang bisa dilakukan: gunakan password yang kuat dan unik untuk setiap akun, aktifkan autentikasi dua faktor (2FA), perbarui perangkat lunak secara berkala, waspada terhadap email dan link mencurigakan, serta gunakan VPN saat mengakses WiFi publik. Backup data secara rutin juga sangat penting untuk mengantisipasi kehilangan data akibat serangan ransomware. Dengan kesadaran dan langkah pencegahan yang tepat, kita dapat meminimalkan risiko menjadi korban kejahatan siber.',
+            'hari_tanggal' => 'Rabu, 11 Juni 2026',
         ]);
     }
 }
